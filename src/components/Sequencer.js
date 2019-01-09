@@ -1,9 +1,20 @@
 import SequenceList from './SequenceList';
 import React from 'react';
 import SequenceChooser from './SequenceChooser';
+import { withState, compose } from 'recompose';
 
-export default () =>
+const Sequencer = ({
+  activatedSequence,
+  setActivatedSequence,
+}) =>
   <div>
-    <SequenceChooser />
-    <SequenceList />
+    {
+      activatedSequence
+        ? <SequenceList />
+        : <SequenceChooser {...{setActivatedSequence}} />
+    }
   </div>
+
+export default compose(
+  withState('activatedSequence', 'setActivatedSequence', null)
+)(Sequencer);
