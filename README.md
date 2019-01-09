@@ -1,4 +1,9 @@
 
+13:07 Stopping - 1 hour
+
+Range Sequencer was implemented (not mocked) and generator's signature changed so that extra parameters passthrough to the sequencer.
+
+---
 
 12:37 - refining the api of the sequencers. Next step will be adding a test to mock the `rangeSeq`, because it has a different signature than the prime seq.
 
