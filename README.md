@@ -1,5 +1,27 @@
 
-13:07 Stopping - 1 hour
+
+16:11
+partialSumSequencer is implemented. Error throwing is tested.
+
+15:46 - RESTART
+
+Thinking about next steps
+
+1 - implement partialSumSeq because it also adds an extra behaviour, that's throwing an error when there are no more available numbers.
+
+2 - implement pipe and isEven
+
+3 - create a simple frontend to integrate things (I like to work from the big picture to the inner details so that pieces fit together.)
+
+4 - implement the missing sequencers
+
+5 - strenghten the sequencers with tests
+
+6 - refine frontend
+
+---
+
+13:07 STOP - 1 hour
 
 Range Sequencer was implemented (not mocked) and generator's signature changed so that extra parameters passthrough to the sequencer.
 
