@@ -1,4 +1,19 @@
-20:33 - Added unorganized Bootstrap components
+
+Thinking about frontend implementation:
+
+Sequence - component that controls everything, from choosing to displaying sequences
+Has small view components (I'll refine while coding)
+
+module constant - availableSequences - {name:String, sequence:Function}
+
+prop/state
+choosing:Boolean - if the user is choosing a sequence
+activatedSequence:{name:String, sequence:Function} - activated sequence
+results:[{index:Int,result:Int}] - the results so far - index is not really necessary, just a small helper. Could be an array of Ints, but I'm already using an object to show the piped stuff later.
+
+---
+
+20:33 - STOP - + 2 hours - Added unorganized Bootstrap components
 
 Thinking about the frontend:
 
@@ -18,6 +33,7 @@ V3 - (after improving the backend)
 Allow adding sequencers side by side. (columns)
 Try to think about responsiveness.
 
+---
 
 19:24 - refining requirements and adding `isEven`
 19:06 - first pipeSeq version working! \o/
@@ -25,7 +41,8 @@ Try to think about responsiveness.
 18:45 - pipeSeq API structure in place and tested.
 
 18:31 - RESTART
-------
+
+---
 
 16:47 STOP + 1 hour
 pipeSeq test implemented
@@ -34,6 +51,8 @@ pipeSeq test implemented
 partialSumSequencer is implemented. Error throwing is tested.
 
 15:46 - RESTART
+
+---
 
 Thinking about next steps
 
