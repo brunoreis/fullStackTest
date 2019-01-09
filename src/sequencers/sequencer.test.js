@@ -1,17 +1,19 @@
 
 
-const primeSequencer = (index) => {
+const primeSequencer = () => {
   const sequence = [2, 3, 5, 7, 11, 13];
-  return sequence[index];
-}
-
-const generator = (sequence) => {
-  let actualIndex = -1;
+  let actual = 0;
   return {
     next: () => {
-      actualIndex++;
-      return sequence(actualIndex)
-    }
+      return sequence[actual++]
+    },
+  }
+}
+
+const generator = (sequencer) => {
+  const sequenceFunction = sequencer();
+  return {
+    next: sequenceFunction.next,
   }
 }
 
