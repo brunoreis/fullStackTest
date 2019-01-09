@@ -34,6 +34,13 @@ describe("pipeSeq", () => {
     expect(seq.next()).toBe(15);
     expect(seq.next()).toBe(26);
   });
-
-
 })
+
+/*
+@todo: implement the following requirements:
+pipeline(pipe) :receives the pipe function and optionally some parameters
+passed to the pipe function.
+It returns itself.
+
+Actually it's not returning itself and is also not receiving those optional parameters.
+*/
