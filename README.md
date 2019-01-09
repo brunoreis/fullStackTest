@@ -2,6 +2,8 @@
 
 12:37 - refining the api of the sequencers. Next step will be adding a test to mock the `rangeSeq`, because it has a different signature than the prime seq.
 
+And also separating and naming files and tests correctly.
+
 ---
 
 12:19 - first commit - rough/mocked implementation to define the required api.
