@@ -1,0 +1,47 @@
+import partialSumSequencer from "./partialSumSequencer";
+import generator from "./generator";
+import pipeSeq from './pipeSeq';
+import accumulator from './accumulator';
+import rangeSequencer from './rangeSequencer';
+
+describe("pipeSeq", () => {
+  it("should return an object with a pipeline function", () => {
+    console.log('rangeSequencer', rangeSequencer)
+    const pipedSeq = pipeSeq(rangeSequencer, 2, 3); // 2, 5, 8, 11
+
+    expect(typeof pipedSeq.pipeline).toBe('function');
+    //     .pipeline(accumulator) // 2, 7(5+2), 15(7+8), 26(15+11)
+    //     .invoke();
+    // const seq = generator (pipedSeq);
+    // expect(seq.next()).toBe(2);
+    // expect(seq.next()).toBe(7);
+    // expect(seq.next()).toBe(15);
+    // expect(seq.next()).toBe(26);
+  });
+
+  it("should return an object with a pipeline function that returns on object with an invoke function", () => {
+    console.log('rangeSequencer', rangeSequencer)
+    const pipedSeq = pipeSeq(rangeSequencer, 2, 3); // 2, 5, 8, 11
+    expect(typeof pipedSeq.pipeline).toBe('function');
+    expect(typeof pipedSeq.pipeline().invoke).toBe('function');
+  });
+
+  it("invoke function should return a sequencer with a next function", () => {
+    const pipedSeq = pipeSeq(rangeSequencer, 2, 3); // 2, 5, 8, 11
+    expect(typeof pipedSeq.pipeline().invoke().next).toBe('function');
+  });
+
+  // it("should return values with the rangeSequencer results piped into the accumulator", () => {
+  //   console.log('rangeSequencer', rangeSequencer)
+  //   const pipedSeq = pipeSeq(rangeSequencer, 2, 3) // 2, 5, 8, 11
+  //     .pipeline(accumulator) // 2, 7(5+2), 15(7+8), 26(15+11)
+  //     .invoke();
+  //   const seq = generator(pipedSeq);
+  //   expect(seq.next()).toBe(2);
+  //   expect(seq.next()).toBe(7);
+  //   expect(seq.next()).toBe(15);
+  //   expect(seq.next()).toBe(26);
+  // });
+
+
+})

@@ -1,5 +1,13 @@
 
 
+18:45 - pipeSeq API structure in place and tested.
+
+18:31 - RESTART
+------
+
+16:47 STOP + 1 hour
+pipeSeq test implemented
+
 16:11
 partialSumSequencer is implemented. Error throwing is tested.
 
@@ -21,7 +29,7 @@ Thinking about next steps
 
 ---
 
-13:07 STOP - 1 hour
+13:07 STOP + 1 hour
 
 Range Sequencer was implemented (not mocked) and generator's signature changed so that extra parameters passthrough to the sequencer.
 
