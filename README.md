@@ -1,4 +1,4 @@
-
+19:06 - first pipeSeq version working! \o/
 18:53 - correcting the pipeSeq API
 18:45 - pipeSeq API structure in place and tested.
 

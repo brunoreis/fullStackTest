@@ -1,12 +1,18 @@
 import generator from './generator';
 
 export default (sequencer, ...extraArgs) => {
-  const pipedGenerator = generator(sequencer, ...extraArgs);
+  const seq = generator(sequencer, ...extraArgs);
   return {
     pipeline: (pipeFunction) => ({
-      invoke: () => () => ({
-        next: () => {},
-      }),
+      invoke: () => {
+        const initedPipeFunction = pipeFunction();
+        return () => ({
+          next: () => {
+            const nextValue = seq.next();
+            return initedPipeFunction(nextValue);
+          },
+        });
+      }
     })
   }
 }
