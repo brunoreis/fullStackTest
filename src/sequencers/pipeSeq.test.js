@@ -26,9 +26,12 @@ describe("pipeSeq", () => {
     expect(typeof pipedSeq.pipeline().invoke).toBe('function');
   });
 
-  it("invoke function should return a sequencer with a next function", () => {
+  it("invoke function should return a sequencer. When the sequencer is called, then it will have a next value.", () => {
     const pipedSeq = pipeSeq(rangeSequencer, 2, 3); // 2, 5, 8, 11
-    expect(typeof pipedSeq.pipeline().invoke().next).toBe('function');
+    const pipedSequecer = pipedSeq.pipeline().invoke();
+    expect(typeof pipedSequecer).toBe('function');
+    expect(typeof pipedSequecer()).toBe('object');
+    expect(typeof pipedSequecer().next).toBe('function');
   });
 
   // it("should return values with the rangeSequencer results piped into the accumulator", () => {

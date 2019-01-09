@@ -4,7 +4,7 @@ export default (sequencer, ...extraArgs) => {
   const pipedGenerator = generator(sequencer, ...extraArgs);
   return {
     pipeline: (pipeFunction) => ({
-      invoke: () => ({
+      invoke: () => () => ({
         next: () => {},
       }),
     })

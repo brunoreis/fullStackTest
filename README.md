@@ -1,5 +1,5 @@
 
-
+18:53 - correcting the pipeSeq API
 18:45 - pipeSeq API structure in place and tested.
 
 18:31 - RESTART
