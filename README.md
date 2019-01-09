@@ -1,4 +1,12 @@
 
+21:29 - STOP - +3 hours - I split the html into small components and added the basic behaviour for choosing a sequence and displaying it.
+
+I added the recompose package to manage components states mostly with hocs. That enables a better separation of concerns, leaving almost all Components as pure functions.
+
+I decided to only add prop-types on critical points for now due to time restrictions. In a big shared repo I sure would add them to all Components.
+
+---
+
 Thinking about frontend implementation:
 
 Sequence - component that controls everything, from choosing to displaying sequences
@@ -13,7 +21,7 @@ results:[{index:Int,result:Int}] - the results so far - index is not really nece
 
 ---
 
-20:33 - STOP - + 2 hours - Added unorganized Bootstrap components
+20:33 - Added unorganized Bootstrap components
 
 Thinking about the frontend:
 
