@@ -1,3 +1,25 @@
+20:33 - Added unorganized Bootstrap components
+
+Thinking about the frontend:
+
+- Activate any sequencer
+- Active sequence (state) can be called for the next value
+- Allow adding the accumulator / isEven into the pipeline
+
+V1 -
+Choose/Activate sequencer > show next button
+click next, show value
+click next again, show value at the top of the list
+
+V2 -
+add accumulator / is even ( 3 columns? - original value / [accumulated] / [isEven])
+
+V3 - (after improving the backend)
+Allow adding sequencers side by side. (columns)
+Try to think about responsiveness.
+
+
+19:24 - refining requirements and adding `isEven`
 19:06 - first pipeSeq version working! \o/
 18:53 - correcting the pipeSeq API
 18:45 - pipeSeq API structure in place and tested.
