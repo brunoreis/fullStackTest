@@ -1,10 +1,16 @@
+
+
+14:35 - Plan reviewed and Fibonacci implemented on both back and front.
+Nice to have: better number formatting and truncating for huge numbers.
+
 So lets review our plan.
 
-1 - spend around 2 hours on the backend to fix design and implement missing sequencers
+1 - spend around 2 hours on the backend to fix the design and implement missing sequencers
 2 - require user input to enable all sequencers
 3 - add accumulator / isEven to the sequencers
 4 - add a visual hint to improve UX, enforcing the right chronological order
-5 - big refactoring and docs (and reevaluating)
+5 - add frontend tests
+6 - big refactoring and docs (and reevaluating)
 
 13:57 - First sequence working on React.
 Another Requirement found:

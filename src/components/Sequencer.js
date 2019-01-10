@@ -17,5 +17,5 @@ const Sequencer = ({
   </div>
 
 export default compose(
-  withState('choosenSequence', 'setChoosenSequence', availableSequences[1])
+  withState('choosenSequence', 'setChoosenSequence', availableSequences[0])
 )(Sequencer);
