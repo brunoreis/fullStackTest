@@ -1,4 +1,15 @@
 
+16:12 - Ok. `pipeSeq` looking great now and all the sequencers are in place.
+
+Now I'm gonna fix the `pipeSeq` to return one object with pipeline and invoke.
+To do so, I'm gonna write some extra tests to allow things like:
+pipeSeq(rangeSequencer, 2, 3).invoke()
+and
+pipeSeq(rangeSequencer, 2, 3).invoke()
+pipedSeq.pipeline(accumulator).pipeline(isEven).invoke();
+
+
+15:35 (after a stretch break) - Prime number sequencer mock replaced by a real implementation.
 15:00 Factorial Sequencer "implemented" (see notes on factorialSequencer.js) in back and front
 
 14:35 - Plan reviewed and Fibonacci implemented on both back and front.

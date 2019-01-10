@@ -1,7 +1,7 @@
-import partialSumSequencer from "./partialSumSequencer";
 import generator from "./generator";
 import pipeSeq from './pipeSeq';
 import accumulator from './accumulator';
+import isEven from './isEven';
 import rangeSequencer from './rangeSequencer';
 
 describe("pipeSeq", () => {
@@ -34,13 +34,34 @@ describe("pipeSeq", () => {
     expect(seq.next()).toBe(15);
     expect(seq.next()).toBe(26);
   });
+
+  it("should work ok when called without any pipe function", () => {
+    const pipedSeq = pipeSeq(rangeSequencer, 2, 3).invoke();
+    const seq = generator(pipedSeq);
+    expect(seq.next()).toBe(2);
+    expect(seq.next()).toBe(5);
+    expect(seq.next()).toBe(8);
+  });
+
+  it("should work ok when called with 2 pipe functions", () => {
+    const pipedSeq = pipeSeq(rangeSequencer, 2, 3)
+      .pipeline(accumulator)
+      .pipeline(isEven)
+      .invoke();
+    const seq = generator(pipedSeq);
+    const expectedResults = [
+      { status: true, number: 2 },
+      { status: false, number: 7 },
+      { status: false, number: 15 },
+      { status: true, number: 26 },
+    ]
+    expectedResults.forEach(
+      expectedResult => expect(seq.next()).toEqual(expectedResult)
+    )
+
+  });
+
+
+
+
 })
-
-/*
-@todo: implement the following requirements:
-pipeline(pipe) :receives the pipe function and optionally some parameters
-passed to the pipe function.
-It returns itself.
-
-Actually it's not returning itself and is also not receiving those optional parameters.
-*/
