@@ -1,3 +1,22 @@
+So lets review our plan.
+
+1 - spend around 2 hours on the backend to fix design and implement missing sequencers
+2 - require user input to enable all sequencers
+3 - add accumulator / isEven to the sequencers
+4 - add a visual hint to improve UX, enforcing the right chronological order
+5 - big refactoring and docs (and reevaluating)
+
+13:57 - First sequence working on React.
+Another Requirement found:
+To enable Range and PartialSum, we need to require user input.
+
+[x] Add activated sequence name
+[x] init the sequencer
+[x] Start the list empty
+[x] implement next button
+
+12:52(SECOND DAY) - START
+---
 
 21:29 - STOP - +3 hours - I split the html into small components and added the basic behaviour for choosing a sequence and displaying it.
 

@@ -2,19 +2,20 @@ import SequenceList from './SequenceList';
 import React from 'react';
 import SequenceChooser from './SequenceChooser';
 import { withState, compose } from 'recompose';
+import { availableSequences } from '../sequencers/createGenerator';
 
 const Sequencer = ({
-  activatedSequence,
-  setActivatedSequence,
+  choosenSequence,
+  setChoosenSequence,
 }) =>
   <div>
     {
-      activatedSequence
-        ? <SequenceList />
-        : <SequenceChooser {...{setActivatedSequence}} />
+      choosenSequence
+        ? <SequenceList {...{choosenSequence}} />
+        : <SequenceChooser {...{setChoosenSequence}} />
     }
   </div>
 
 export default compose(
-  withState('activatedSequence', 'setActivatedSequence', null)
+  withState('choosenSequence', 'setChoosenSequence', availableSequences[1])
 )(Sequencer);

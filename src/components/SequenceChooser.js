@@ -1,29 +1,23 @@
 import React from 'react';
 import { withState, compose } from 'recompose';
 import PropTypes from 'prop-types';
-
-const SEQUENCES = [
-  {name:"Factorial", sequence: () => {}},
-  {name:"Fibonacci", sequence: () => {}},
-  {name:"Range", sequence: () => {}},
-  {name:"Prime", sequence: () => {}},
-  {name:"Partial Sum", sequence: () => {}},
-]
+import { availableSequences } from '../sequencers/createGenerator';
 
 const ListItem = ({name, sequence, onClick}) =>
-  <a href="#" {...{onClick}} className="list-group-item list-group-item-action">
+  <a href="#" {...{onClick}} className="list-group-item list-group-item-action"> {/* eslint-disable-line jsx-a11y/anchor-is-valid */}
     {name}
   </a>
 
 const List = ({
-  setActivatedSequence,
+  setChoosenSequence,
 }) =>
   <div className="AddSequencer">
     <ul className="list-group InnerText">
       {
-        SEQUENCES.map(
+        availableSequences.map(
           (sequenceData) => <ListItem
-            onClick = {() => setActivatedSequence(sequenceData)}
+            key={sequenceData.name}
+            onClick = {() => setChoosenSequence(sequenceData)}
             {...sequenceData}
           />
         )
@@ -39,12 +33,12 @@ const Button = ({onClick}) =>
 const SequenceChooser = ({
   choosing,
   setChoosing,
-  setActivatedSequence,
+  setChoosenSequence,
 }) =>
   <div>
     {
       choosing
-        ? <List {...{setActivatedSequence}}/>
+        ? <List {...{setChoosenSequence}}/>
         : <Button
             onClick={() => setChoosing(true)}
           />
@@ -57,7 +51,7 @@ const SmartButton = compose(
 )(SequenceChooser)
 
 SmartButton.propTypes = {
-  setActivatedSequence: PropTypes.func.isRequired,
+  setChoosenSequence: PropTypes.func.isRequired,
 }
 
 export default SmartButton;
