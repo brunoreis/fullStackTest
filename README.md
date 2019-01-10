@@ -1,4 +1,5 @@
 
+15:00 Factorial Sequencer "implemented" (see notes on factorialSequencer.js) in back and front
 
 14:35 - Plan reviewed and Fibonacci implemented on both back and front.
 Nice to have: better number formatting and truncating for huge numbers.

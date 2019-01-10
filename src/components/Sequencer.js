@@ -3,6 +3,8 @@ import React from 'react';
 import SequenceChooser from './SequenceChooser';
 import { withState, compose } from 'recompose';
 import { availableSequences } from '../sequencers/createGenerator';
+console.log("​availableSequences", availableSequences);
+
 
 const Sequencer = ({
   choosenSequence,
