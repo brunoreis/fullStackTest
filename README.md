@@ -10,8 +10,21 @@ Some important decisions here:
 
  - I also want to say that this test, despite being very big, is challenging and very good.
 
-
 ---
+Start:
+
+`yarn run start`
+
+Run the sequencers tests:
+
+`yarn run test src/sequencers/`
+---
+
+This is the end.
+
+Please read from bottom to top since it's in reversed chronological order.
+There are some design decisions as time goes by, and of course, some of them were not implemented since it was an iterative process.
+Most comments with time have an associated commit.
 
 20:37 - Only the accumulator / isEven logic was added to the frontend.
 
