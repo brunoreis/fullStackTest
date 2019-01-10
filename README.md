@@ -1,3 +1,20 @@
+Some important decisions here:
+
+- I did not make frontend tests. I'm not very good at them in a way they help me to TDD. So I left them to add later, but time was over before I got there.
+
+- I did not add PropTypes to a lot of places. That's not how I do when I work in a shared repo and I realy enforce having a strong typing, but in this case, it would take too much time.
+
+- I liked a lot the TDD I made on the sequence generation and on the overall architercture of the backend. Here too I would add more tests, speccialy for random sequence indexes, if time would let me too.
+
+ - That said, I think code is pretty good. Refactorings are always welcome, but it's clear enough for you to understand.
+
+ - I also want to say that this test, despite being very big, is challenging and very good.
+
+
+---
+
+20:37 - Only the accumulator / isEven logic was added to the frontend.
+
 due to time restrictions, I will:
 
 1 - add a couple of frontend tests

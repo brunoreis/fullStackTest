@@ -7,15 +7,24 @@ import {
 import { concat } from 'ramda';
 import PropTypes from 'prop-types';
 import createGenerator from '../sequencers/createGenerator';
+import generator from '../sequencers/generator';
+
 import Sequence from './Sequence';
 import SequenceHeader from './SequenceHeader';
+import pipeSeq from '../sequencers/pipeSeq';
+import accumulator from '../sequencers/accumulator';
+import isEven from '../sequencers/isEven';
 
 const SequenceList = ({
   choosenSequence,
   next,
   sequence,
   extraArguments,
-  setExtraArguments
+  setExtraArguments,
+  toggleAccumulator,
+  toggleIsEven,
+  pipeIsEven,
+  pipeAccumulator,
 }) =>
   <div style={{
     width: '18rem'
@@ -31,6 +40,10 @@ const SequenceList = ({
             next,
             extraArguments,
             setExtraArguments,
+            toggleAccumulator,
+            toggleIsEven,
+            pipeIsEven,
+            pipeAccumulator,
             sequenceStarted: sequence.length > 0 // rename to showConfig ?
           }}
         />
@@ -46,6 +59,8 @@ SequenceList.propTypes = {
   }),
   next: PropTypes.func.isRequired,
   sequence: PropTypes.array,
+  toggleIsEven: PropTypes.func.isRequired,
+  toggleAccumulator: PropTypes.func.isRequired,
 }
 
 export default compose(
@@ -54,7 +69,11 @@ export default compose(
   withState('extraArguments', 'setExtraArguments', null),
   withState('activatedSequence', 'setActivatedSequencer', null),
   withState('sequence', 'setSequence', []),
+  withState('pipeAccumulator', 'setPipeAccumulator', false),
+  withState('pipeIsEven', 'setPipeIsEven', false),
   withHandlers({
+    toggleIsEven: ({ pipeIsEven, setPipeIsEven }) => () => setPipeIsEven(!pipeIsEven),
+    toggleAccumulator: ({ pipeAccumulator, setPipeAccumulator }) => () => setPipeAccumulator(!pipeAccumulator),
     next: ({
       setSequence,
       sequence,
@@ -62,27 +81,48 @@ export default compose(
       extraArguments,
       choosenSequence,
       setActivatedSequencer,
+      pipeIsEven,
+      pipeAccumulator,
     }) => () => {
       let newActivatedSequencer;
       if(!activatedSequence) {
-        newActivatedSequencer = createGenerator(
-          choosenSequence.sequencer,
-          ...extraArguments
-        );
+        if(pipeAccumulator || pipeIsEven) {
+          let pipedSeq = pipeSeq(
+            choosenSequence.sequencer,
+            ...extraArguments
+          );
+          if(pipeAccumulator) {
+            pipedSeq = pipedSeq.pipeline(accumulator)
+          }
+          if(pipeIsEven) {
+            pipedSeq = pipedSeq.pipeline(isEven)
+          }
+          newActivatedSequencer = generator(
+            pipedSeq.invoke(),
+            ...extraArguments
+          );
+        } else {
+          newActivatedSequencer = createGenerator(
+            choosenSequence.sequencer,
+            ...extraArguments
+          );
+        }
         setActivatedSequencer(newActivatedSequencer)
       }
       const sequencer = activatedSequence || newActivatedSequencer;
-      setSequence(
-        concat(
-          [
-            {
-              index: sequence.length+1,
-              value: sequencer.next()
-            }
-          ],
-          sequence
-        )
-      );
+      const nextValue = sequencer.next();
+      const nextItem = (typeof nextValue === 'object')
+        ? {
+          index: sequence.length + 1,
+          value: nextValue.number,
+          isEven: nextValue.status,
+        }
+        : {
+          index: sequence.length + 1,
+          value: nextValue,
+          isEven: null,
+        }
+      setSequence( concat([nextItem], sequence) );
     },
   })
 )(SequenceList);

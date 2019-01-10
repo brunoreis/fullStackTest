@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SequenceHeader shows the addAccumulator toggle button 1`] = `
+<div>
+  <h5
+    className="card-title d-flex  justify-content-around align-items-center"
+  >
+    <div>
+      Partial
+    </div>
+    <button
+      className="btn btn-primary btn-sm"
+      disabled={true}
+      onClick={[Function]}
+    >
+      Next
+    </button>
+  </h5>
+  <div
+    aria-label="Third group"
+    className="btn-group mb-2"
+    role="group"
+  >
+    <button
+      className="btn btn-sm btn-default"
+      type="button"
+    >
+      accumulator
+    </button>
+    <button
+      className="btn btn-sm btn-default"
+      type="button"
+    >
+      isEven
+    </button>
+  </div>
+  <div>
+    <p
+      style={
+        Object {
+          "fontSize": "0.8em",
+        }
+      }
+    />
+  </div>
+</div>
+`;

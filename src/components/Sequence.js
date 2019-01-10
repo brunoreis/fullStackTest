@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SequenceItem = ({ index, value }) =>
+const SequenceItem = ({ index, value, isEven }) =>
   <li
     className="list-group-item d-flex  justify-content-around"
   >
@@ -9,7 +9,7 @@ const SequenceItem = ({ index, value }) =>
       #{index}
     </div>
     <div className="ItemValue">
-      {value}
+      {value} {isEven ? '(even)' : null}
     </div>
   </li>
 
