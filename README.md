@@ -1,4 +1,11 @@
 
+
+18:45 - Now I added the configuration of the sequences to the frontend.
+The possibility to add those "extra values" that are added to the generator.
+I did it in a way to have a very low coupling with the SequenceList and SequenceHeader objects. It will inject a method to set those extra values and if the values are set, `Next` can be pressed and the sequence started.
+
+I decided to use integers for all values, to simplify things.
+
 16:12 - Ok. `pipeSeq` looking great now and all the sequencers are in place.
 
 Now I'm gonna fix the `pipeSeq` to return one object with pipeline and invoke.
@@ -18,7 +25,9 @@ Nice to have: better number formatting and truncating for huge numbers.
 So lets review our plan.
 
 1 - spend around 2 hours on the backend to fix the design and implement missing sequencers
+
 2 - require user input to enable all sequencers
+
 3 - add accumulator / isEven to the sequencers
 4 - add a visual hint to improve UX, enforcing the right chronological order
 5 - add frontend tests

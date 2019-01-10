@@ -6,12 +6,40 @@ import factorialSequencer from './factorialSequencer';
 
 import generator from './generator';
 
+export const sequences = {
+  FACTORIAL: 'FACTORIAL',
+  FIBONACCI:'FIBONACCI',
+  RANGE:'RANGE',
+  PRIME:'PRIME',
+  PARTIAL_SUM:'PARTIAL_SUM',
+}
+
 export const availableSequences = [
-  {name:"Factorial", sequencer: factorialSequencer},
-  {name:"Fibonacci", sequencer: fibonacciSequencer},
-  {name:"Range", sequencer: partialSumSequencer},
-  {name:"Prime", sequencer: primeSequencer},
-  {name:"Partial Sum", sequencer: rangeSequencer},
+  {
+    type: sequences.FACTORIAL,
+    name:"Factorial",
+    sequencer: factorialSequencer,
+  },
+  {
+    type: sequences.FIBONACCI,
+    name:"Fibonacci",
+    sequencer: fibonacciSequencer,
+  },
+  {
+    type: sequences.RANGE,
+    name:"Range",
+    sequencer: rangeSequencer,
+  },
+  {
+    type: sequences.PRIME,
+    name:"Prime",
+    sequencer: primeSequencer,
+  },
+  {
+    type: sequences.PARTIAL_SUM,
+    name:"Partial Sum",
+    sequencer: partialSumSequencer,
+  },
 ]
 
 export default (sequencer, ...extraArgs) => generator(sequencer, ...extraArgs)
