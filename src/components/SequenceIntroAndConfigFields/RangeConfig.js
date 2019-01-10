@@ -1,3 +1,11 @@
+/*
+manage and validate user input
+set extraArguments
+
+this sure can be improved with a good refactor
+
+*/
+
 import React from 'react';
 import {
   compose,

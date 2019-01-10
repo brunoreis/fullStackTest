@@ -1,4 +1,10 @@
+due to time restrictions, I will:
 
+1 - add a couple of frontend tests
+2 - add accumulator / isEven
+3 - review
+
+(6 hours, 11 total so far)
 
 18:45 - Now I added the configuration of the sequences to the frontend.
 The possibility to add those "extra values" that are added to the generator.
@@ -44,7 +50,7 @@ To enable Range and PartialSum, we need to require user input.
 
 12:52(SECOND DAY) - START
 ---
-
+(total: 5 hours)
 21:29 - STOP - +3 hours - I split the html into small components and added the basic behaviour for choosing a sequence and displaying it.
 
 I added the recompose package to manage components states mostly with hocs. That enables a better separation of concerns, leaving almost all Components as pure functions.

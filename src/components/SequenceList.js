@@ -17,20 +17,25 @@ const SequenceList = ({
   extraArguments,
   setExtraArguments
 }) =>
-  <div className="card InnerText" style={{
+  <div style={{
     width: '18rem'
   }}>
-    <div className="card-body">
-      <SequenceHeader
-        {...{
-          choosenSequence, // maybe we can pass the title only
-          next,
-          extraArguments,
-          setExtraArguments,
-          sequenceStarted: sequence.length > 0 // rename to showConfig ?
-        }}
-      />
-      <Sequence {...{sequence}}/>
+    <p className="OutterText">
+      Please refresh the page to chose a different sequencer / restart.
+    </p>
+    <div className="card InnerText">
+      <div className="card-body">
+        <SequenceHeader
+          {...{
+            choosenSequence, // maybe we can pass the title only
+            next,
+            extraArguments,
+            setExtraArguments,
+            sequenceStarted: sequence.length > 0 // rename to showConfig ?
+          }}
+        />
+        <Sequence {...{sequence}}/>
+      </div>
     </div>
   </div>;
 

@@ -11,7 +11,7 @@ const introTexts = {
   [sequences.FIBONACCI]:'In mathematics, the Fibonacci numbers, commonly denoted Fn form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1.',
   [sequences.RANGE]:'Please, tell us on what number to start and what is the interval (step) between the numbers of the sequence.',
   [sequences.PRIME]:'A prime number (or a prime) is a natural number greater than 1 that cannot be formed by multiplying two smaller natural numbers.',
-  [sequences.PARTIAL_SUM]:'PARTIAL_SUM',
+  [sequences.PARTIAL_SUM]:'Sorry, our developer run out of time to code this UI. Please check the test cases to see the sequence working.',
 };
 
 
