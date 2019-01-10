@@ -18,6 +18,7 @@ Start:
 Run the sequencers tests:
 
 `yarn run test src/sequencers/`
+
 ---
 
 This is the end.
